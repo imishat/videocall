@@ -1,13 +1,24 @@
-import Button from 'material-icons-react';
-import IconButton from 'material-icons-react';
-import TextField from 'material-icons-react';
-import AssignmentIcon from 'material-icons-react';
-import PhoneIcon from 'material-icons-react';
+
+
+
+
+
+
+
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
+
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import AssignmentLateSharpIcon from '@mui/icons-material/AssignmentLateSharp';
+
+
 import React, { useEffect, useRef, useState } from "react"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Peer from "simple-peer"
 import io from "socket.io-client"
 import "./App.css"
+import { AspectRatio, LocalPhone } from '@mui/icons-material';
 
 
 const socket = io.connect('http://localhost:5000')
@@ -95,7 +106,7 @@ function App() {
 
 	return (
 		<>
-			<h1 style={{ textAlign: "center", color: '#fff' }}>Zoomish</h1>
+			<h1 style={{ textAlign: "center", color: '#fff' }}>job </h1>
 		<div className="container">
 			<div className="video-container">
 				<div className="video">
@@ -117,7 +128,7 @@ function App() {
 					style={{ marginBottom: "20px" }}
 				/>
 				<CopyToClipboard text={me} style={{ marginBottom: "2rem" }}>
-					<Button variant="contained" color="primary" startIcon={<AssignmentIcon fontSize="large" />}>
+					<Button variant="contained" color="primary" startIcon={<AspectRatio fontSize="large" />}>
 						Copy ID
 					</Button>
 				</CopyToClipboard>
@@ -136,7 +147,8 @@ function App() {
 						</Button>
 					) : (
 						<IconButton color="primary" aria-label="call" onClick={() => callUser(idToCall)}>
-							<PhoneIcon fontSize="large" />
+						{/* add call */}
+            <IoCallOutline/>
 						</IconButton>
 					)}
 					{idToCall}
